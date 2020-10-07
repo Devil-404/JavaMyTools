@@ -1,0 +1,15 @@
+com\zyd\tools\files\FilesCopyUtils.class
+com\zyd\tools\excel\factory\CustomExcelStyle.class
+com\zyd\tools\custom\ScannerUtils.class
+com\zyd\tools\files\CopyUtils.class
+com\zyd\tools\excel\factory\EasyExcelWriterFactory.class
+com\zyd\tools\excel\ExcelUtils.class
+com\zyd\tools\md\MD5Utils.class
+com\zyd\tools\excel\ExcelUtilsV2.class
+com\zyd\tools\custom\RandomDataUtil.class
+com\zyd\tools\custom\mode\OfficeAutomationMode.class
+com\zyd\tools\beans\StudentExcel.class
+com\zyd\tools\custom\ComparisonOfSize.class
+com\zyd\tools\files\FileUtils.class
+com\zyd\tools\md\MD4Utils.class
+com\zyd\tools\custom\OfficeAutomation.class
