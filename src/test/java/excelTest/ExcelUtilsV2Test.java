@@ -137,7 +137,7 @@ public class ExcelUtilsV2Test {
     @Test
     public void ExcelTest5() throws IOException {
         OfficeAutomationMode mode = new OfficeAutomationMode();
-        mode.setAddString("test");
+        mode.setAddString("test2");
         mode.setSourcePath("E:\\js\\2020-09-24");
         mode.setDestPath("E:\\js\\aa");
         mode.setExcelSourcePath("D:\\123.xlsx");

@@ -53,22 +53,11 @@ public class CustomExcelStyle implements SheetWriteHandler, CellWriteHandler {
     public void afterSheetCreate(WriteWorkbookHolder writeWorkbookHolder, WriteSheetHolder writeSheetHolder) {
         Workbook workbook = writeWorkbookHolder.getWorkbook();
         Sheet sheet = workbook.getSheetAt(0);
-        for (int i = 0; i < x; i++)
-            sheet.setColumnWidth(i, 4240);
+        FontCellStyle.setColumnsWidth(sheet,x,4240);
         // 头部样式策略
-        Font font = workbook.createFont();
-        font.setBold(true);
-        font.setFontHeight((short) 300);
-        font.setFontName("等线");
+        Font font = FontCellStyle.setFont(workbook,true,(short)300);
         font.setColor(IndexedColors.BLACK.index);
-        CellStyle cellStyle = workbook.createCellStyle();
-        cellStyle.setFont(font);
-        cellStyle.setAlignment(HorizontalAlignment.CENTER);
-        cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
-        cellStyle.setBorderTop(BorderStyle.THIN);
-        cellStyle.setBorderBottom(BorderStyle.THIN);
-        cellStyle.setBorderLeft(BorderStyle.THIN);
-        cellStyle.setBorderRight(BorderStyle.THIN);
+        CellStyle cellStyle = FontCellStyle.setCellStyle(workbook,BorderStyle.THIN,font);
         cellStyle.setFillBackgroundColor(IndexedColors.WHITE1.index);
         //设置标题
         Row row1 = sheet.createRow(0);
@@ -115,22 +104,11 @@ public class CustomExcelStyle implements SheetWriteHandler, CellWriteHandler {
     private void setColor(Cell cell, WriteSheetHolder writeSheetHolder, IndexedColors color, IndexedColors backgroundColors) {
         Sheet sheet = writeSheetHolder.getSheet();
         Workbook workbook = sheet.getWorkbook();
-        Font font = workbook.createFont();
-        //font.setColor(color.index);
+        Font font = FontCellStyle.setFont(workbook,"等线",(short)240);
         font.setBold(true);
-        //20倍
-        font.setFontHeight((short) 240);
-        font.setFontName("等线");
-        CellStyle cellStyle = workbook.createCellStyle();
+        CellStyle cellStyle = FontCellStyle.setCellStyle(workbook,BorderStyle.THIN,font);
         cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         cellStyle.setFillForegroundColor(backgroundColors.index);
-        cellStyle.setAlignment(HorizontalAlignment.CENTER);
-        cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
-        cellStyle.setFont(font);
-        cellStyle.setBorderTop(BorderStyle.THIN);
-        cellStyle.setBorderBottom(BorderStyle.THIN);
-        cellStyle.setBorderLeft(BorderStyle.THIN);
-        cellStyle.setBorderRight(BorderStyle.THIN);
         cell.setCellStyle(cellStyle);
     }
 }
