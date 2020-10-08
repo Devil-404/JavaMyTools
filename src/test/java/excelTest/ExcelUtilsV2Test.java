@@ -136,12 +136,17 @@ public class ExcelUtilsV2Test {
 
     @Test
     public void ExcelTest5() throws IOException {
+        //4489288400 4236695200
+        //3797248400 3854292500
+        //4375803300 4065223000
+        //3787685800
+        long startTime = System.nanoTime();
         OfficeAutomationMode mode = new OfficeAutomationMode();
-        mode.setAddString("test2");
+        mode.setAddString("test3");
         mode.setSourcePath("E:\\js\\2020-09-24");
         mode.setDestPath("E:\\js\\aa");
         mode.setExcelSourcePath("D:\\123.xlsx");
-        mode.setExcelDestPath("D:\\123.xlsx");
+        mode.setExcelDestPath("D:\\456.xlsx");
         mode.setExceptionName("入伍");
         mode.setExceptionNumber(47);
         mode.setNewRowContent("√");
@@ -150,6 +155,8 @@ public class ExcelUtilsV2Test {
         mode.setFileType(".zip|.rar");
         OfficeAutomation automation = new OfficeAutomation();
         automation.automaticMarkingHomework(mode);
+        long endTime = System.nanoTime();
+        System.out.println("耗时：" + (endTime - startTime));
     }
 
     @Test

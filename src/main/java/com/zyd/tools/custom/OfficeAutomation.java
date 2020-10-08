@@ -6,10 +6,7 @@ import com.zyd.tools.files.FilesCopyUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @description:自动化办公（自动操作Excel）
@@ -58,41 +55,37 @@ public class OfficeAutomation {
         List<String> headList = new ArrayList<>();
         //Excel内容数组
         List<List<Object>> code = new ArrayList<>();
-
         //遍历源Excel内容并进行相关操作
-        for (int i = 0; i < list.size(); i++) {
+        //线程安全，但损耗少量资源
+        for (Map<Integer, Object> map : list) {
             //创建临时数组，存放每一行数据
             List<Object> codeList = new LinkedList<>();
-
-            //遍历所有列的长度
-            for (int z = 0; z < list.get(i).size(); z++) {
-                //如果是第一行则插入头标数组，
-                //也就是源Excel（list）的第一个Map对象插入到头标数组
-                //否则内容添加到临时数组
-                if (i == 0) {
-                    headList.add(list.get(i).get(z).toString());
-                } else {
-                    codeList.add(list.get(i).get(z));
-                }
-            }
+            //如果是第一行则插入头标数组，
+            //也就是源Excel（list）的第一个Map对象插入到头标数组
+            //否则内容添加到临时数组
+            for (Map.Entry<Integer, Object> entry : map.entrySet())
+                if (list.indexOf(map)==0)
+                    headList.add(entry.getValue().toString());
+                else
+                    codeList.add(entry.getValue());
             //先把所有新的一列标记成“×”
             codeList.add(mode.getNewRowContent2());
             //遍历文件数组，判断每个文件夹名是否包含当前单元格的字符串（i,2）
             //也就是判断一个文件名是否能和一个表中的姓名相匹配
             //如果匹配当前行最新的单元格修改成“√”
-            for (File file : files) {
-                if (file.getName().contains((String) list.get(i).get(2))) {
+            for (File file : files)
+                if (file.getName().contains((String) map.get(2))) {
                     codeList.set(codeList.size() - 1, mode.getNewRowContent());
                     break;
                 }
-            }
             //如果当前不为第一行则将临时数组添加到单元内容数组
-            if (i > 0) {
+            if (list.indexOf(map) > 0) {
                 code.add(codeList);
-                if (i == mode.getExceptionNumber())
+                if (list.indexOf(map) == mode.getExceptionNumber())
                     codeList.set(codeList.size() - 1, mode.getExceptionName());
             }
         }
+
         //相应的给头也添加一格新的单元格
         headList.add(mode.getAddString());
         //将头标数组和内容数组写入目标Excel文件，
