@@ -158,5 +158,9 @@ public class ExcelUtilsV2Test {
         System.out.println(12313123);
         System.out.println("我滴个什");
         System.out.print("\033[0m");
+        OfficeAutomationMode mode = new OfficeAutomationMode();
+        mode.setAddString("test2");
+        mode.setSourcePath("E:\\js\\2020-09-24");
+        System.out.println(mode.getSheetName());
     }
 }
