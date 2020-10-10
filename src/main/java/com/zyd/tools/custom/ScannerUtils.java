@@ -3,7 +3,7 @@ package com.zyd.tools.custom;
 import java.util.Scanner;
 
 /**
- * @description:
+ * @description:输出提示并获取键盘输入的值
  * @projectName:MyTool
  * @see:com.zyd.tool
  * @author:张屹东

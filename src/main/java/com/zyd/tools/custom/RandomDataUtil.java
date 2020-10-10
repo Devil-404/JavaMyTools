@@ -207,10 +207,6 @@ public final class RandomDataUtil {
      * @return
      */
     private static String getRoad() {
-//        int index = getNum(0, road.length - 1);
-//        String first = road[getNum(0, road.length - 1];
-//        String second = getNum(11, 150) + "号";
-//        String third = "-" + getNum(1, 20) + "-" + getNum(1, 10);
         return road[getNum(0, road.length - 1)] + getNum(11, 150) + "号" + "-" + getNum(1, 20) + "-" + getNum(1, 10);
     }
 

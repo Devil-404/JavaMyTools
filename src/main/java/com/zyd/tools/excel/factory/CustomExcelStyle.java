@@ -56,6 +56,7 @@ public class CustomExcelStyle implements SheetWriteHandler, CellWriteHandler {
         FontCellStyle.setColumnsWidth(sheet,x,4240);
         // 头部样式策略
         Font font = FontCellStyle.setFont(workbook,true,(short)300);
+        font.setFontName("等线");
         font.setColor(IndexedColors.BLACK.index);
         CellStyle cellStyle = FontCellStyle.setCellStyle(workbook,BorderStyle.THIN,font);
         cellStyle.setFillBackgroundColor(IndexedColors.WHITE1.index);

@@ -142,19 +142,18 @@ public class ExcelUtilsV2Test {
         //3787685800
         long startTime = System.nanoTime();
         OfficeAutomationMode mode = new OfficeAutomationMode();
-        mode.setAddString("test3");
-        mode.setSourcePath("E:\\js\\2020-09-24");
-        mode.setDestPath("E:\\js\\aa");
+        mode.setAddString("第二次作业");
+        mode.setSourcePath("E:\\js\\2020-10-10");
+        mode.setDestPath("E:\\js\\第二次课堂作业");
         mode.setExcelSourcePath("D:\\123.xlsx");
-        mode.setExcelDestPath("D:\\456.xlsx");
+        mode.setExcelDestPath("D:\\123.xlsx");
         mode.setExceptionName("入伍");
         mode.setExceptionNumber(47);
         mode.setNewRowContent("√");
         mode.setNewRowContent2("×");
         mode.setSheetName("作业登记表");
         mode.setFileType(".zip|.rar");
-        OfficeAutomation automation = new OfficeAutomation();
-        automation.automaticMarkingHomework(mode);
+        new OfficeAutomation().automaticMarkingHomework(mode);
         long endTime = System.nanoTime();
         System.out.println("耗时：" + (endTime - startTime));
     }
