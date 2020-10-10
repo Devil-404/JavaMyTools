@@ -142,17 +142,28 @@ public class ExcelUtilsV2Test {
         //3787685800
         long startTime = System.nanoTime();
         OfficeAutomationMode mode = new OfficeAutomationMode();
+
+        //新加列的名称
         mode.setAddString("第二次作业");
+        //需要批量提取文件的目录
         mode.setSourcePath("E:\\js\\2020-10-10");
+        //批量提取文件存放的目录
         mode.setDestPath("E:\\js\\第二次课堂作业");
+        //需要操作的excel
         mode.setExcelSourcePath("D:\\123.xlsx");
+        //操作后存档的excel
         mode.setExcelDestPath("D:\\123.xlsx");
-        mode.setExceptionName("入伍");
+        //例外行的下标（如：入伍同学的行数）
         mode.setExceptionNumber(47);
+        //例外行新加列的内容
+        mode.setExceptionName("入伍");
         mode.setNewRowContent("√");
         mode.setNewRowContent2("×");
+        //sheet页的名称
         mode.setSheetName("作业登记表");
+        //需要批量拷贝的文件类型
         mode.setFileType(".zip|.rar");
+
         new OfficeAutomation().automaticMarkingHomework(mode);
         long endTime = System.nanoTime();
         System.out.println("耗时：" + (endTime - startTime));
