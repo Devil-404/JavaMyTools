@@ -144,15 +144,15 @@ public class ExcelUtilsV2Test {
         OfficeAutomationMode mode = new OfficeAutomationMode();
 
         //新加列的名称
-        mode.setAddString("第二次作业");
+        mode.setAddString("10.12课后作业");
         //需要批量提取文件的目录
-        mode.setSourcePath("E:\\js\\2020-10-10");
+        mode.setSourcePath("E:\\js\\10.12作业");
         //批量提取文件存放的目录
-        mode.setDestPath("E:\\js\\第二次课堂作业");
+        mode.setDestPath("E:\\js\\10.12");
         //需要操作的excel
-        mode.setExcelSourcePath("D:\\123.xlsx");
+        mode.setExcelSourcePath("E:\\js\\123.xlsx");
         //操作后存档的excel
-        mode.setExcelDestPath("D:\\123.xlsx");
+        mode.setExcelDestPath("E:\\js\\123.xlsx");
         //例外行的下标（如：入伍同学的行数）
         mode.setExceptionNumber(47);
         //例外行新加列的内容
